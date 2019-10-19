@@ -1,3 +1,7 @@
+# Name:Quang Huy Nguyen
+# Pharmacology Department, the university of Dainam, 
+# Hanoi, Vietnam
+# __________________________________________________
 *********3.3. Exercise
 1.
 n <- 100
@@ -130,3 +134,53 @@ sum(1/n^2) #1.634984
 3.
 murder_rate <- with(murders, total/population * 10^5) %>% mean() #2.779125
 
+--------------------------------------------------------------------------------------------------
+
+*********3.15. Exercise
+1.
+murder_rate = with(murders,total/population *10^5)
+low <- murder_rate < 1
+# [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+# [10] FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE
+# [19] FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+# [28] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE
+# [37] FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE
+# [46]  TRUE FALSE FALSE FALSE FALSE  TRUE
+2.
+which(low)
+# [1] 12 13 16 20 24 30 35 38 42 45 46 51
+3.
+with(murders,state[which(low)])
+# [1] "Hawaii"        "Idaho"         "Iowa"         
+# [4] "Maine"         "Minnesota"     "New Hampshire"
+# [7] "North Dakota"  "Oregon"        "South Dakota" 
+# [10] "Utah"          "Vermont"       "Wyoming" 
+4.
+with(murders, state[region == "Northeast" & low])
+# [1] "Maine"         "New Hampshire" "Vermont"  
+5.
+c <- murder_rate < mean(murder_rate)
+length(which(c)) #27
+6.
+match(c("AK", "MI", "IA"), murders$abb)
+#[1]  2 23 16
+7.
+c("MA", "ME", "MI", "MO", "MU") %in% murders$abb
+#[1]  TRUE  TRUE  TRUE  TRUE FALSE
+8.
+which(!c("MA", "ME", "MI", "MO", "MU") %in% murders$abb) #[1] 5
+
+--------------------------------------------------------------------------------------------------
+
+*********3.17. Exercise
+1.
+with(murders,plot(log10(population/10^6), log10(total),
+          xlab = "population in million (log scale)",
+          ylab = "total (log scale)"))
+2. 
+with(murders,hist(population/10^6, xlab="population in million"))
+3.
+boxplot(population/10^6 ~ region, 
+                       xlab = "region",
+                       ylab = "popopulation in million",
+                       data = murders)
