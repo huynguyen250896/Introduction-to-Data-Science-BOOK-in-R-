@@ -1,0 +1,48 @@
+# Name:Quang Huy Nguyen
+# Pharmacology Department, the university of Dainam
+# Hanoi, Vietnam
+# __________________________________________________
+*********4.6 Exercise
+1. Not all positives
+2. c. any(!x)
+3.
+new_names <- ifelse(nchar(murders$state)>8, 
+                   murders$abb[nchar(murders$state)>8],
+                   NA)
+# [1] NA   NA   NA   NA   "MA" NA   "MS" NA   "NJ" NA   NA  
+# [12] NA   NA   NA   NA   NA   NA   NA   "WV" NA   NA   "CT"
+# [23] NA   "LA" "MA" NA   NA   NA   NA   "NM" "NC" "ND" NA  
+# [34] "RI" "SC" NA   NA   NA   "WV" "WI" "CA" "CT" "DC" NA  
+# [45] NA   NA   NA   "NH" "NJ" "NM" NA  
+4.
+sum_n <- function(x){
+  sum(seq(1,x))
+  return(sum(seq(1,x)))
+}
+sum_n(5000) #12502500
+5.
+altmanplot <- function(x,y){
+  plot(sum(x),sum(y))
+  return(plot(sum(x),sum(y)))
+}
+6. 3
+7.
+compute_s_n <-function(x){
+  sum(c(1:x)^2)
+  return(sum(c(1:x)^2))
+} #385
+8.
+s_n <- vector("numeric", 25)
+m<-25
+for(n in 1:m){
+     s_n[n] <- compute_s_n(n)
+}
+9.
+10.
+11.
+n<-seq(1,25)
+plot(s_n,n)
+12.
+n=25896
+compute_s_n(n) == n*(n+1)*(2*n+1)/6 #[1] TRUE
+
