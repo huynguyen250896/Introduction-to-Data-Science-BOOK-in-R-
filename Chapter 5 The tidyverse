@@ -132,3 +132,12 @@ NHANES %>% group_by(Gender,AgeDecade) %>% summarise(mean = mean(BPSysAve, na.rm=
 # 17 male   " 70+"    130.  18.7 
 # 18 male   NA        136.  23.5 
 7.
+NHANES %>% filter(Gender =="male", AgeDecade == " 40-49") %>% group_by(Race1) %>% summarise(mean = mean(BPSysAve, na.rm=TRUE), sd=sd(BPSysAve, na.rm=TRUE)) %>% arrange(mean)
+## A tibble: 5 x 3
+#  Race1     mean    sd
+#  <fct>    <dbl> <dbl>
+#1 White     120.  13.4
+#2 Other     120.  16.2
+#3 Hispanic  122.  11.1
+#4 Mexican   122.  13.9
+#5 Black     126.  17.1
