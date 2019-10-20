@@ -1,0 +1,53 @@
+# Name:Quang Huy Nguyen
+# Pharmacology Department, the university of Dainam
+# Hanoi, Vietnam
+# __________________________________________________
+
+*********5.2. Exercise
+1. D. co2 is not tidy: to be tidy we would have to wrangle it to have three columns (year, month and value), then each co2 observation would have a row.
+2. B. ChickWeight is tidy: each observation (a weight) is represented by one row. The chick from which this measurement came from is one the variables.
+3. C. BOD is tidy: each row is an observation with two values (time and demand)
+4.
+C. DNase
+D. Formaldehyde
+E. Orange
+
+--------------------------------------------------------------------------------------------------
+
+*********5.4. Exercise
+1.
+murders <- murders %>% mutate(population_in_millions = population/10^6)
+2.
+murders <- murders %>% mutate(rank = rank(-rate))
+3.
+murders %>% select(state, abb) %>% head()
+# state abb
+# 1    Alabama  AL
+# 2     Alaska  AK
+# 3    Arizona  AZ
+# 4   Arkansas  AR
+# 5 California  CA
+# 6   Colorado  CO
+4.
+murders %>% filter(rank <= 5)
+5.
+no_south<-murders %>% filter(region != "South")
+length(no_south)
+#[1] 8
+6.
+ murders_nw <- murders %>% filter(region %in%
+                                  c("Northeast", "West"))
+ length(murders_nw)
+#[1] 8
+7.
+my_states <- murders %>% filter(region %in% c("Northeast", "West") & rate < 1) %>% select(state, rank, rate)
+my_states
+#          state rank      rate
+#1        Hawaii   49 0.5145920
+#2         Idaho   46 0.7655102
+#3         Maine   44 0.8280881
+#4 New Hampshire   50 0.3798036
+#5        Oregon   42 0.9396843
+#6          Utah   45 0.7959810
+#7       Vermont   51 0.3196211
+#8       Wyoming   43 0.8871131
