@@ -33,7 +33,8 @@ str(murders)
 # $ population: num  4779736 710231 6392017 2915918 37253956 ...
 # $ total     : num  135 19 232 93 1257 ...
 2.
-'state', 'abb', 'region', 'population', and 'total'
+murders %>% names()
+#[1]'state', 'abb', 'region', 'population', and 'total'
 3.
 a <- murders$abb 
 class(a) #character
