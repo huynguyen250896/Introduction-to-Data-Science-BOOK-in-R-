@@ -21,7 +21,7 @@ murders <- murders %>% mutate(population_in_millions = population/10^6)
 murders <- murders %>% mutate(rank = rank(-rate))
 3.
 murders %>% select(state, abb) %>% head()
-# state abb
+#       state abb
 # 1    Alabama  AL
 # 2     Alaska  AK
 # 3    Arizona  AZ
@@ -61,3 +61,74 @@ No need to solve these problems. I did in the same way from the previous problem
 
 *********5.9. Exercise
 1.
+ref <-NHANES %>% filter(Gender == "female" & AgeDecade ==" 20-29") %>% summarise(mean = mean(BPSysAve, na.rm=TRUE), sd=sd(BPSysAve, na.rm=TRUE))
+ref
+# A tibble: 1 x 2
+#   mean `sd(BPSysAve, na.rm = TRUE)`
+#  <dbl>                        <dbl>
+#1  108.                         10.1
+2.
+ref_avg <- ref$mean
+3.
+NHANES %>% filter(Gender == "female" & AgeDecade ==" 20-29") %>% summarise(max = max(BPSysAve, na.rm=TRUE), min = min(BPSysAve, na.rm=TRUE))
+## A tibble: 1 x 2
+#    max   min
+#  <dbl> <dbl>
+#1   179    84
+4.
+NHANES %>% filter(Gender =="female") %>% group_by(AgeDecade) %>% summarise(mean = mean(BPSysAve, na.rm=TRUE), sd=sd(BPSysAve, na.rm=TRUE))
+# # A tibble: 9 x 3
+# AgeDecade  mean    sd
+# <fct>     <dbl> <dbl>
+#   1 " 0-9"    100.0  9.07
+# 2 " 10-19"  104.   9.46
+# 3 " 20-29"  108.  10.1 
+# 4 " 30-39"  111.  12.3 
+# 5 " 40-49"  115.  14.5 
+# 6 " 50-59"  122.  16.2 
+# 7 " 60-69"  127.  17.1 
+# 8 " 70+"    134.  19.8 
+# 9 NA        142.  22.9 
+# Warning message:
+#   Factor `AgeDecade` contains implicit NA, consider using `forcats::fct_explicit_na` 
+5.
+NHANES %>% filter(Gender =="male") %>% group_by(AgeDecade) %>% summarise(mean = mean(BPSysAve, na.rm=TRUE), sd=sd(BPSysAve, na.rm=TRUE))
+# # A tibble: 9 x 3
+# AgeDecade  mean    sd
+# <fct>     <dbl> <dbl>
+#   1 " 0-9"     97.4  8.32
+# 2 " 10-19"  110.  11.2 
+# 3 " 20-29"  118.  11.3 
+# 4 " 30-39"  119.  12.3 
+# 5 " 40-49"  121.  14.0 
+# 6 " 50-59"  126.  17.8 
+# 7 " 60-69"  127.  17.5 
+# 8 " 70+"    130.  18.7 
+# 9 NA        136.  23.5 
+# Warning message:
+#   Factor `AgeDecade` contains implicit NA, consider using `forcats::fct_explicit_na` 
+6.
+NHANES %>% group_by(Gender,AgeDecade) %>% summarise(mean = mean(BPSysAve, na.rm=TRUE), sd=sd(BPSysAve, na.rm=TRUE))
+# # A tibble: 18 x 4
+# # Groups:   Gender [2]
+# Gender AgeDecade  mean    sd
+# <fct>  <fct>     <dbl> <dbl>
+#   1 female " 0-9"    100.0  9.07
+# 2 female " 10-19"  104.   9.46
+# 3 female " 20-29"  108.  10.1 
+# 4 female " 30-39"  111.  12.3 
+# 5 female " 40-49"  115.  14.5 
+# 6 female " 50-59"  122.  16.2 
+# 7 female " 60-69"  127.  17.1 
+# 8 female " 70+"    134.  19.8 
+# 9 female NA        142.  22.9 
+# 10 male   " 0-9"     97.4  8.32
+# 11 male   " 10-19"  110.  11.2 
+# 12 male   " 20-29"  118.  11.3 
+# 13 male   " 30-39"  119.  12.3 
+# 14 male   " 40-49"  121.  14.0 
+# 15 male   " 50-59"  126.  17.8 
+# 16 male   " 60-69"  127.  17.5 
+# 17 male   " 70+"    130.  18.7 
+# 18 male   NA        136.  23.5 
+7.
