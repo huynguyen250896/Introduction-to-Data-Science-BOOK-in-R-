@@ -113,7 +113,7 @@ NHANES %>% group_by(Gender,AgeDecade) %>% summarise(mean = mean(BPSysAve, na.rm=
 # # Groups:   Gender [2]
 # Gender AgeDecade  mean    sd
 # <fct>  <fct>     <dbl> <dbl>
-#   1 female " 0-9"    100.0  9.07
+# 1 female " 0-9"    100.0  9.07
 # 2 female " 10-19"  104.   9.46
 # 3 female " 20-29"  108.  10.1 
 # 4 female " 30-39"  111.  12.3 
@@ -121,7 +121,7 @@ NHANES %>% group_by(Gender,AgeDecade) %>% summarise(mean = mean(BPSysAve, na.rm=
 # 6 female " 50-59"  122.  16.2 
 # 7 female " 60-69"  127.  17.1 
 # 8 female " 70+"    134.  19.8 
-# 9 female NA        142.  22.9 
+# 9 female   NA      142.  22.9 
 # 10 male   " 0-9"     97.4  8.32
 # 11 male   " 10-19"  110.  11.2 
 # 12 male   " 20-29"  118.  11.3 
@@ -141,3 +141,15 @@ NHANES %>% filter(Gender =="male", AgeDecade == " 40-49") %>% group_by(Race1) %>
 #3 Hispanic  122.  11.1
 #4 Mexican   122.  13.9
 #5 Black     126.  17.1
+
+--------------------------------------------------------------------------------------------------
+
+5.15.Exercise
+1.
+B. murders is in tidy format and is stored in a data frame.
+2. 
+murders_tibble <- as.tibble(murders)
+3.
+murders %>% group_by(region)
+4.
+murders$population %>% log() %>% mean() %>% exp()
