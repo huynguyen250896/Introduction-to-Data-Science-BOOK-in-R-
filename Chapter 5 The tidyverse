@@ -153,3 +153,4 @@ murders_tibble <- as.tibble(murders)
 murders %>% group_by(region)
 4.
 murders$population %>% log() %>% mean() %>% exp()
+5.
