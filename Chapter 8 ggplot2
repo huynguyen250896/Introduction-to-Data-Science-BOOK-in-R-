@@ -1,0 +1,50 @@
+
+
+1.
+character
+2.
+b. blank state plot
+3.
+heights %>% ggplot()
+4.
+list
+5.
+C. total and population
+6.
+murders %>% ggplot(aes(x=population/10^6,y=total)) +
+   geom+point()
+7.
+murders %>% ggplot(aes(total,population /10^6)) +
+   geom+point()
+8.
+A. We need to map a character to each point through the label argument in aes.
+9.
+murders %>% ggplot(aes(population, total)) + geom_label(aes(label = abb))
+10.
+D. Because we want all colors to be blue, we do not need to map colors, just use the color argument in geom_label.
+11.
+murders %>% ggplot(aes(population, total)) + geom_label(aes(label = abb), color = 'blue')
+12.
+B. Because each label needs a different color we map the colors through the color argument of aes .
+13.
+murders %>% 
+  ggplot(aes(population, total, label = abb, color = region))
+14.
+p <- murders %>% 
+  ggplot(aes(population, total, label = abb, color = region)) +
+  geom_label() +
+  scale_y_log10()
+15.
+p <- murders %>% 
+  ggplot(aes(population, total, label = abb, color = region)) +
+  geom_label() +
+  scale_y_log10() +
+  scale_y_log10()
+16.
+p <- murders %>% 
+  ggplot(aes(population, total, label = abb, color = region)) +
+  geom_label() +
+  scale_y_log10() +
+  scale_y_log10()
+  ggtitle("gun murders data")
+     
