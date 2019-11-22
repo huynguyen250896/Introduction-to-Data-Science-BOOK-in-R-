@@ -3,7 +3,22 @@
 1. 20% (= ~0.25 - 5%)
 2.
 The graph above is a histogram. (Wrong. It's a Barplot)
-The graph above shows only four numbers with a bar plot. (Right!)
+B. The graph above shows only four numbers with a bar plot. (Right!)
 Categories are not numbers, so it does not make sense to graph the distribution. (Simply wrong)
-The colors, not the height of the bars, describe the distribution. (Wrong! Each color is a representative for each US region
+The colors, not the height of the bars, describe the distribution. (Wrong! Each color is a representative for each US region)
 3.
+a=0.75 (x axis) => F(0.75)=P(a<=0.75)~0.95 (y-axis)
+4.
+We have the assumption: "height m has the property that 1/2 of the male students are taller than m and 1/2 are shorter"
+=> F(a)=P(a<=x)=0.5 (y-axis) => a=69 inches (x-axis)
+5.
+Firstly, we go figure out how many states have murder rates lesser than 10 per 100,000 people:
+a=10 (x axis) => F(10)=P(a<=10)~0.98 (y-axis) => the number of states we need is 0.98.51=49,98~50(states)
+Finally, the number of states have murder rates greater than 10 per 100,000 people is: 51-50=1(state)
+6.
+About half the states have murder rates above 7 per 100,000 and the other half below.(Wrong! F(a)=0.5 => a~3 per 100,000)
+Most states have murder rates below 2 per 100,000.(Wrong! P(x<=2)~0.38)
+All the states have murder rates above 2 per 100,000. (Wrong! P(x>2)=1-0.38=0.62)
+With the exception of 4 states, the murder rates are below 5 per 100,000.
+7.
+C. 3
